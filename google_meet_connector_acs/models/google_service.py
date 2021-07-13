@@ -13,6 +13,6 @@ class GoogleService(models.AbstractModel):
     def _do_request(self, uri, params=None, headers=None, method='POST', preuri="https://www.googleapis.com", timeout=TIMEOUT):
         split_vals = uri.split('/')
         if split_vals and 'calendars' in split_vals and 'events' in split_vals:
-            uri = uri + '?conferenceDataVersion=1&sendNotifications=True'
+            uri = uri + '&sendNotifications=True'
         res = super(GoogleService, self)._do_request(uri=uri, params=params, headers=headers, method=method, preuri=preuri, timeout=timeout)
         return res
